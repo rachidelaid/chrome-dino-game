@@ -1,7 +1,7 @@
 # chrome-dino-game
 
 [X] update loop
-[ ] ground js
+[X] ground js
+[X] cactus js
 [ ] dino js
-[ ] cactus js
 [ ] game lose logic

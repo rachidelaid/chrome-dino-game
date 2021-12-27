@@ -1,14 +1,20 @@
+import { setupGround, updateGround } from './ground.js';
+import { updateCactus, setupCactus, getCactusRects } from './cactus.js';
+
 const worldElm = document.querySelector('.world');
 const scoreElm = document.querySelector('.score');
+const startScreenElm = document.querySelector('.start-screen');
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
+const SPEED_SCALE_INCREASE = 0.00001;
 
 setPixelToWorldScale();
 window.addEventListener('resize', setPixelToWorldScale);
 window.addEventListener('keydown', handleStart, { once: true });
 
 let lastTime;
+let speedScale;
 function update(time) {
   if (lastTime === null) {
     lastTime = time;
@@ -17,7 +23,10 @@ function update(time) {
   }
 
   const delta = time - lastTime;
-  console.log(delta);
+  speedScale += delta * SPEED_SCALE_INCREASE;
+
+  updateGround(delta, speedScale);
+  updateCactus(delta, speedScale);
 
   lastTime = time;
   window.requestAnimationFrame(update);
@@ -25,7 +34,12 @@ function update(time) {
 
 function handleStart() {
   lastTime = null;
+  speedScale = 1;
 
+  setupGround();
+  setupCactus();
+
+  startScreenElm.classList.add('hide');
   window.requestAnimationFrame(update);
 }
 

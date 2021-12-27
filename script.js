@@ -1,5 +1,6 @@
 import { setupGround, updateGround } from './ground.js';
 import { updateCactus, setupCactus, getCactusRects } from './cactus.js';
+import { updateDino, setupDino, getDinoRect, setDinoLose } from './dino.js';
 
 const worldElm = document.querySelector('.world');
 const scoreElm = document.querySelector('.score');
@@ -15,6 +16,7 @@ window.addEventListener('keydown', handleStart, { once: true });
 
 let lastTime;
 let speedScale;
+let score;
 function update(time) {
   if (lastTime === null) {
     lastTime = time;
@@ -25,19 +27,29 @@ function update(time) {
   const delta = time - lastTime;
   speedScale += delta * SPEED_SCALE_INCREASE;
 
+  updateScore(delta);
+
   updateGround(delta, speedScale);
   updateCactus(delta, speedScale);
+  updateDino(delta, speedScale);
 
   lastTime = time;
   window.requestAnimationFrame(update);
 }
 
+function updateScore(delta) {
+  score += delta * 0.01;
+  scoreElm.textContent = Math.floor(score);
+}
+
 function handleStart() {
   lastTime = null;
   speedScale = 1;
+  score = 0;
 
   setupGround();
   setupCactus();
+  setupDino();
 
   startScreenElm.classList.add('hide');
   window.requestAnimationFrame(update);

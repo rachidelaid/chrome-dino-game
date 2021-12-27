@@ -2,6 +2,8 @@
 
 This is a clone of the dinosaur game build using vanilla javascript.
 
+![screenshot](./assets/Screenshot.png)
+
 ## Built With
 
 - HTML

@@ -40,6 +40,6 @@ export function updateCactus(delta, speedScale) {
 
 export function getCactusRects() {
   return [...document.querySelectorAll('.cactus')].map((c) =>
-    c.getClientRects()
+    c.getBoundingClientRect()
   );
 }

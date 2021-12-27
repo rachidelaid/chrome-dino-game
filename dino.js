@@ -30,7 +30,7 @@ export function setDinoLose() {
 }
 
 export function getDinoRect() {
-  return dinoElm.getClientRects();
+  return dinoElm.getBoundingClientRect();
 }
 
 function handleRun(delta, speedScale) {

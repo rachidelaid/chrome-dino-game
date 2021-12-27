@@ -13,6 +13,7 @@ body {
   min-height: 100vh;
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
+  color: #545454;
 }
 
 .world {
@@ -33,6 +34,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-weight: bold;
 }
 
 .hide {

@@ -11,6 +11,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
 }
 
 .world {

@@ -1,6 +1,6 @@
 # chrome-dino-game
 
-[ ] update loop
+[X] update loop
 [ ] ground js
 [ ] dino js
 [ ] cactus js
